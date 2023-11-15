@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <h3 id="main-header">Header 3</h3>
+  <h3 id="main-header">User Agent: </h3>
+  <label>
+    <h1>Paste URL from embed code</h1>
+    <input style="width: 600px;" type="text" id="script">
+  </label>
+  <button id="injectBtn" class="btn" onclick="inject()">Inject</button>
 
-    
-    <!-- <script type="text/javascript" src="https://resources.digital-cloud-qa.medallia.com/wdcqa/716144/onsite/embed.js" async></script> -->
-    <!-- <script type="text/javascript" src="https://resources.digital-cloud-qa-web.medallia.com/websites/36507/onsite/embed.js" async></script> -->
-    <script type="text/javascript" src="https://resources.digital-cloud.medallia.com/wdcus/235374/onsite/embed.js" async></script>
+  <h2 id="title">...</h2>
 
-    <script>
-        let header = document.querySelector('#main-header');
-        header.innerText = window.navigator.userAgent;
-    </script>
+
+
+  <!-- <script type="text/javascript" src="https://resources.digital-cloud-qa.medallia.com/wdcqa/716144/onsite/embed.js" async></script> -->
+  <!-- <script type="text/javascript" src="https://resources.digital-cloud-qa-web.medallia.com/websites/36507/onsite/embed.js" async></script> -->
+  <script type="text/javascript" src="https://resources.digital-cloud.medallia.com/wdcus/235374/onsite/embed.js" async></script>
+
+  <script>
+    let header = document.querySelector('#main-header');
+    header.innerText += window.navigator.userAgent;
+
+    function inject(event) {
+      let injectBtn = document.getElementById("injectBtn");
+      let pageBody = document.getElementsByTagName("body")[0];
+      let scriptInputValue = document.getElementById("script").value;
+      let title = document.getElementById("title");
+      
+      const newScript = document.createElement("script");
+      newScript.setAttribute("src", scriptInputValue);
+      pageBody.appendChild(newScript);
+      
+      title.innerHTML = scriptInputValue + "\n - injected.";
+      injectBtn.style.backgroundColor = "#000";
+      title.style.color = "#000";
+      injectBtn.removeAttribute("onclick");
+    }
+  </script>
 </body>
+
 </html>
