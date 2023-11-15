@@ -21,7 +21,9 @@
 
   <!-- <script type="text/javascript" src="https://resources.digital-cloud-qa.medallia.com/wdcqa/716144/onsite/embed.js" async></script> -->
   <!-- <script type="text/javascript" src="https://resources.digital-cloud-qa-web.medallia.com/websites/36507/onsite/embed.js" async></script> -->
-  <script type="text/javascript" src="https://resources.digital-cloud.medallia.com/wdcus/235374/onsite/embed.js" async></script>
+
+  <!-- CapitalOne EEQ -->
+  <!-- <script type="text/javascript" src="https://resources.digital-cloud.medallia.com/wdcus/235374/onsite/embed.js" async></script> -->
 
   <script>
     let header = document.querySelector('#main-header');
@@ -36,7 +38,7 @@
       const newScript = document.createElement("script");
       newScript.setAttribute("src", scriptInputValue);
       pageBody.appendChild(newScript);
-      
+
       title.innerHTML = scriptInputValue + "\n - injected.";
       injectBtn.style.backgroundColor = "#000";
       title.style.color = "#000";
